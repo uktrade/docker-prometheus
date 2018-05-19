@@ -4,7 +4,7 @@ groups:
 
   # Alert on application low CPU usage - this will avg usage across all workers
   - alert: LowCPUUsage
-    expr: avg(cpu{organisation="dit-services", app!~"^__conduit.*$") by (space, app) < 10
+    expr: avg(cpu{organisation="dit-services", app!~"^__conduit.*$"}) by (space, app) < 10
     for: 5m
     labels:
       action: autoscale
@@ -12,7 +12,7 @@ groups:
 
   # Alert on application low CPU usage - this will avg usage across all workers
   - alert: HighCPUUsage
-    expr: avg(cpu{organisation="dit-services", app!~"^__conduit.*$") by (space, app) > 90
+    expr: avg(cpu{organisation="dit-services", app!~"^__conduit.*$"}) by (space, app) > 90
     for: 5m
     labels:
       action: autoscale

@@ -1,6 +1,6 @@
-from prom/prometheus
+FROM prom/prometheus
 
-ENTRYPOINT /bin/ash
+#ENTRYPOINT /etc/prometheus/run.sh
 
 COPY run.sh /etc/prometheus
 COPY *.yml /etc/prometheus/
@@ -8,4 +8,5 @@ USER root
 RUN chmod +x /etc/prometheus/run.sh
 USER nobody
 
-CMD ['/etc/prometheus/run.sh']
+ENTRYPOINT []
+CMD ["/etc/prometheus/run.sh"]

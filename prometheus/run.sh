@@ -1,5 +1,7 @@
 #!/bin/ash
 
+cd /etc/prometheus
+
 template="/etc/prometheus/prometheus.yml"
 
 env | while IFS='=' read -r key val; do
