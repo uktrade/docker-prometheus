@@ -1,7 +1,5 @@
 FROM prom/prometheus
 
-#ENTRYPOINT /etc/prometheus/run.sh
-
 COPY run.sh /etc/prometheus
 COPY *.yml /etc/prometheus/
 USER root
