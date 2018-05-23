@@ -17,7 +17,7 @@ rule_files:
 remote_write:
   - url: "http://write_adaptor:8080/write"
 remote_read:
-  - url: "http://read_adaptor:8080/read"
+  - url: "http://write_adaptor:8080/read"
 
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
