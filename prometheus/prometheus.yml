@@ -8,16 +8,17 @@ alerting:
   alertmanagers:
   - static_configs:
     - targets:
-      # - alertmanager:9093
+      - alert1.internal.uktrade.io:9093
+      - alert2.internal.uktrade.io:9093
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
   - "autoscaling_alerts.yml"
 
 remote_write:
-  - url: "http://write_adaptor:8080/write"
+  - url: "http://es_adaptor:8080/write"
 remote_read:
-  - url: "http://write_adaptor:8080/read"
+  - url: "http://es_adaptor:8080/read"
 
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
@@ -34,16 +35,9 @@ scrape_configs:
     static_configs:
       - targets: ['${paas_exporter_url}']
 
-  - job_name: 'write_adaptor'
+  - job_name: 'es_adaptor'
 
     static_configs:
-      - targets: ['write_adaptor:8080']
+      - targets: ['es_adaptor:8080']
         labels:
-          cluster: 'write_adaptor'
-
-  - job_name: 'read_adaptor'
-
-    static_configs:
-      - targets: ['read_adaptor:8080']
-        labels:
-          cluster: 'read_adaptor'
+          cluster: 'es_adaptor'
