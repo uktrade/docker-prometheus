@@ -14,5 +14,5 @@ receivers:
 - name: 'test-alerts'
   email_configs:
   - to: 'lyndon.garvey@digital.trade.gov.uk'
-  webhook_configs:
-  - url: http://98fc3193.ngrok.io/web_hook/
+#  webhook_configs:
+#  - url: http://98fc3193.ngrok.io/web_hook/
