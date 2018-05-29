@@ -1,6 +1,9 @@
 FROM prom/alertmanager
 
-COPY alertmanager.yml /etc/alertmanager/alertmanager.yml
+COPY run.sh /etc/alertmanager
+COPY *.yml /etc/alertmanager/
+RUN chmod +x /etc/alertmanager/run.sh
 
-CMD [ "--storage.path=/alertmanager", "--config.file=/etc/alertmanager/alertmanager.yml"]
+ENTRYPOINT []
+CMD ["/etc/alertmanager/run.sh"]
 
