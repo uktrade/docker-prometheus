@@ -1,0 +1,16 @@
+global:
+  smtp_from: ${smtp_from}
+  smtp_smarthost: ${smtp_from}  # Example: smtp.example.org:587
+  smtp_auth_username: ${smtp_from}
+  smtp_auth_password: ${smtp_from}
+
+route:
+  receiver: 'test-alerts'
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 10m
+
+receivers:
+- name: 'test-alerts'
+  email_configs:
+  - to: 'lyndon.garvey@digital.trade.gov.uk'
