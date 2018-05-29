@@ -1,8 +1,8 @@
 global:
   smtp_from: ${smtp_from}
-  smtp_smarthost: ${smtp_from}  # Example: smtp.example.org:587
-  smtp_auth_username: ${smtp_from}
-  smtp_auth_password: ${smtp_from}
+  smtp_smarthost: ${smtp_server}  # Example: smtp.example.org:587
+  smtp_auth_username: ${smtp_username}
+  smtp_auth_password: ${smtp_password}
 
 route:
   receiver: 'test-alerts'
