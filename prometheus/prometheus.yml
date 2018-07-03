@@ -15,10 +15,11 @@ alerting:
 rule_files:
   - "autoscaling_alerts.yml"
 
-remote_write:
-  - url: "http://es_adaptor:8080/write"
-remote_read:
-  - url: "http://es_adaptor:8080/read"
+# temporarily disable whilst figuring out why the es adaptor causes errors
+#remote_write:
+#  - url: "http://es_adaptor:8080/write"
+#remote_read:
+#  - url: "http://es_adaptor:8080/read"
 
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
@@ -35,14 +36,20 @@ scrape_configs:
     static_configs:
       - targets: ['${paas_exporter_url}']
 
-  - job_name: 'es_adaptor'
+  - job_name: 'cf_autoscaler'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${autoscaler_exporter_url}']
 
+  - job_name: 'cf_event-logs'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${eventlogs_exporter_url}']
+
+  - job_name: 'es_adaptor'
     static_configs:
       - targets: ['es_adaptor:8080']
         labels:
           cluster: 'es_adaptor'
 
-  - job_name: 'cf_autoscaler'
-    scheme: 'https'
-    static_configs:
-      - targets: ['${autoscaler_exporter_url}']
+

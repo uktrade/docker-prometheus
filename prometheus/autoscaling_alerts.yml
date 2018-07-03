@@ -1,19 +1,19 @@
-groups:
-- name: autoscaling
-  rules:
-
-  # Alert on application low CPU usage - this will avg usage across all instances
-  - alert: LowCPUUsage
-    expr: avg(cpu{organisation="dit-services", app!~"^__conduit.*$"}) by (space, app) < 10
-    for: 5m
-    labels:
-      action: autoscale
-      severity: low
-
-  # Alert on application low CPU usage - this will avg usage across all instances
-  - alert: HighCPUUsage
-    expr: avg(cpu{organisation="dit-services", app!~"^__conduit.*$"}) by (space, app) > 90
-    for: 5m
-    labels:
-      action: autoscale
-      severity: low
+#groups:
+#- name: autoscaling
+#  rules:
+#
+#  # Alert on application low CPU usage - this will avg usage across all instances
+#  - alert: LowCPUUsage
+#    expr: avg(cpu{organisation="dit-services", app!~"^__conduit.*$"}) by (space, app) < 10
+#    for: 5m
+#    labels:
+#      action: autoscale
+#      severity: low
+#
+#  # Alert on application low CPU usage - this will avg usage across all instances
+#  - alert: HighCPUUsage
+#    expr: avg(cpu{organisation="dit-services", app!~"^__conduit.*$"}) by (space, app) > 90
+#    for: 5m
+#    labels:
+#      action: autoscale
+#      severity: low
