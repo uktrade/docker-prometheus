@@ -51,4 +51,4 @@ scrape_configs:
 
   - job_name: 'activity-stream-dev'
     static_configs:
-      - targets: ['${activity_stream_dev_url}']
+      - targets: ['${activity_stream_exporter_dev_url}']
