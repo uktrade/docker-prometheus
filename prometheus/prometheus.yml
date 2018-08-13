@@ -49,6 +49,11 @@ scrape_configs:
         labels:
           cluster: 'es_adaptor'
 
+  - job_name: 'activity-stream'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${activity_stream_exporter_url}']
+
   - job_name: 'activity-stream-dev'
     scheme: 'https'
     static_configs:
