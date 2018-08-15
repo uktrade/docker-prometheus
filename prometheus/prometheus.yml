@@ -53,3 +53,8 @@ scrape_configs:
     scheme: 'https'
     static_configs:
       - targets: ['${activity_stream_exporter_dev_url}']
+
+  - job_name: 'activity-stream-prod'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${activity_stream_exporter_url}']
