@@ -33,17 +33,28 @@ scrape_configs:
     static_configs:
       - targets: ['${paas_exporter_url}']
 
-  - job_name: 'cf_autoscaler'
+  - job_name: 'govuk-paas-london'
+    scheme: 'https'
+
+    static_configs:
+      - targets: ['${paas_london_exporter_url}']
+
+  - job_name: 'cf-autoscaler'
     scheme: 'https'
     static_configs:
       - targets: ['${autoscaler_exporter_url}']
+
+  - job_name: 'cf-autoscaler-london'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${autoscaler_london_exporter_url}']
 
   - job_name: 'cf_event-logs'
     scheme: 'https'
     static_configs:
       - targets: ['${eventlogs_exporter_url}']
 
-  - job_name: 'es_adaptor'
+  - job_name: 'es-adaptor'
     static_configs:
       - targets: ['es_adaptor:8080']
         labels:
