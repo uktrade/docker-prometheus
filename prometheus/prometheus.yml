@@ -29,12 +29,17 @@ scrape_configs:
 
   - job_name: 'govuk-paas'
     scheme: 'https'
-
+    basic_auth:
+      username: '${paas_exporter_username}'
+      password: '${paas_exporter_password}'
     static_configs:
       - targets: ['${paas_exporter_url}']
 
   - job_name: 'govuk-paas-london'
     scheme: 'https'
+    basic_auth:
+      username: '${paas_exporter_username}'
+      password: '${paas_exporter_password}'
 
     static_configs:
       - targets: ['${paas_london_exporter_url}']
