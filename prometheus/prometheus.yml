@@ -33,9 +33,7 @@ scrape_configs:
       username: '${paas_exporter_username}'
       password: '${paas_exporter_password}'
     static_configs:
-      - targets: ['${paas_exporter_url}']
-      labels:
-        region: 'ireland'
+       - targets: ['${paas_exporter_url}']
 
   - job_name: 'govuk-paas-london'
     scheme: 'https'
@@ -44,8 +42,6 @@ scrape_configs:
       password: '${paas_exporter_password}'
     static_configs:
       - targets: ['${paas_london_exporter_url}']
-      labels:
-        region: 'london'
 
   - job_name: 'cf-autoscaler'
     scheme: 'https'
@@ -61,12 +57,6 @@ scrape_configs:
     scheme: 'https'
     static_configs:
       - targets: ['${eventlogs_exporter_url}']
-
-  - job_name: 'es-adaptor'
-    static_configs:
-      - targets: ['es_adaptor:8080']
-        labels:
-          cluster: 'es_adaptor'
 
   - job_name: 'activity-stream-dev'
     scheme: 'https'
