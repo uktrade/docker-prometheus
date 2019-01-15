@@ -77,3 +77,13 @@ scrape_configs:
     scheme: 'https'
     static_configs:
       - targets: ['${activity_stream_exporter_url}']
+
+  - job_name: 'activity-stream-eu-west-2-dev'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${activity_stream_exporter_eu_west_2_dev_url}']
+
+  - job_name: 'activity-stream-eu-west-2-prod'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${activity_stream_exporter_eu_west_2_url}']
