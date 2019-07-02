@@ -72,3 +72,8 @@ scrape_configs:
     scheme: 'https'
     static_configs:
       - targets: ['${activity_stream_exporter_eu_west_2_url}']
+
+  - job_name: 'data-workspace-dev'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${data_workspace_dev_exporter_eu_west_2_url}']
