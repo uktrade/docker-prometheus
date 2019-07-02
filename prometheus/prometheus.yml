@@ -79,4 +79,4 @@ scrape_configs:
     params:
       'match[]': ['{job="tools"}']
     static_configs:
-      - targets: ['${data_workspace_dev_exporter_eu_west_2_url}']
+      - targets: ['${data_workspace_exporter_dev_url}']
