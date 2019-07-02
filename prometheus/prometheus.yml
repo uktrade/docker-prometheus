@@ -77,6 +77,6 @@ scrape_configs:
     scheme: 'https'
     metrics_path: /federate
     params:
-      'match[]': '{job="tools"}'
+      'match[]': ['{job="tools"}']
     static_configs:
       - targets: ['${data_workspace_dev_exporter_eu_west_2_url}']
