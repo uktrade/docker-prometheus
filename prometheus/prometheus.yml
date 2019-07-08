@@ -73,6 +73,14 @@ scrape_configs:
     static_configs:
       - targets: ['${activity_stream_exporter_eu_west_2_url}']
 
+  - job_name: 'data-workspace'
+    scheme: 'https'
+    metrics_path: /federate
+    params:
+      'match[]': ['{job="tools"}']
+    static_configs:
+      - targets: ['${data_workspace_exporter_url}']
+
   - job_name: 'data-workspace-dev'
     scheme: 'https'
     metrics_path: /federate
