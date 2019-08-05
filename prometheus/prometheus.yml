@@ -75,3 +75,13 @@ scrape_configs:
       'match[]': ['{job="tools"}']
     static_configs:
       - targets: ['${data_workspace_exporter_dev_url}']
+
+  - job_name: 'statsd-exporter-staging'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${statsd_exporter_staging_url}']
+
+  - job_name: 'statsd-exporter'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${statsd_exporter_url}']
