@@ -27,14 +27,6 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
-  - job_name: 'govuk-paas'
-    scheme: 'https'
-    basic_auth:
-      username: '${paas_exporter_username}'
-      password: '${paas_exporter_password}'
-    static_configs:
-       - targets: ['${paas_exporter_url}']
-
   - job_name: 'govuk-paas-london'
     scheme: 'https'
     basic_auth:
@@ -42,11 +34,6 @@ scrape_configs:
       password: '${paas_exporter_password}'
     static_configs:
       - targets: ['${paas_london_exporter_url}']
-
-  - job_name: 'cf-autoscaler'
-    scheme: 'https'
-    static_configs:
-      - targets: ['${autoscaler_exporter_url}']
 
   - job_name: 'cf-autoscaler-london'
     scheme: 'https'
@@ -88,3 +75,13 @@ scrape_configs:
       'match[]': ['{job="tools"}']
     static_configs:
       - targets: ['${data_workspace_exporter_dev_url}']
+
+  - job_name: 'statsd-exporter-staging'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${statsd_exporter_staging_url}']
+
+  - job_name: 'statsd-exporter'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${statsd_exporter_url}']
