@@ -109,3 +109,11 @@ scrape_configs:
     scheme: 'https'
     static_configs:
       - targets: ['${statsd_exporter_url}']
+
+  - job_name: 'promregator'
+    scheme: 'https'
+    basic_auth:
+      username: '${promregator_username}'
+      password: '${promregator_password}'
+    static_configs:
+      - targets: ['${promregator_url}']
