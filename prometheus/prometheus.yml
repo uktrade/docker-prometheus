@@ -83,6 +83,11 @@ scrape_configs:
     static_configs:
       - targets: ['${activity_stream_2_exporter_eu_west_2_url}']
 
+  - job_name: 'activity-stream-3-eu-west-2-prod'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${activity_stream_3_exporter_eu_west_2_url}']
+
   - job_name: 'data-workspace'
     scheme: 'https'
     metrics_path: /federate
