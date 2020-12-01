@@ -138,6 +138,11 @@ scrape_configs:
     static_configs:
       - targets: ['${promregator_url}']
 
+  - job_name: 'cost-monitor'
+    scheme: 'https'
+    static_configs:
+      - targets: ['${cost_monitor_url}']
+
   - job_name: aiven_prometheus
     scheme: https
     basic_auth:
