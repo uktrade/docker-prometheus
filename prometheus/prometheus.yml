@@ -143,6 +143,16 @@ scrape_configs:
     static_configs:
       - targets: ['${cost_monitor_url}']
 
+
+  - job_name: 'redis-metrics'
+    scheme: 'https'
+    scrape_interval: 300s
+    basic_auth:
+      username: '${redis_username}'
+      password: '${redis_password}'
+    static_configs:
+      - targets: ['${redis_exporter_url}']
+
   - job_name: aiven_prometheus
     scheme: https
     basic_auth:
